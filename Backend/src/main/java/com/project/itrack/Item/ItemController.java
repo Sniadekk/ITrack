@@ -1,6 +1,7 @@
 package com.project.itrack.Item;
 
 import com.project.itrack.Category.Category;
+import com.project.itrack.Category.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,14 +9,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path="/category/{categoryId}/item")
 public class ItemController {
     private ItemRepository itemRepository;
+    private CategoryRepository categoryRepository;
 
     ItemController(){
 
     }
 
     @Autowired
-    ItemController(ItemRepository itemRepository){
+    ItemController(ItemRepository itemRepository, CategoryRepository categoryRepository){
         this.itemRepository = itemRepository;
+        this.categoryRepository = categoryRepository;
+
     }
 
 
@@ -26,6 +30,8 @@ public class ItemController {
 
     @RequestMapping(path="/", method = RequestMethod.POST)
     public void addItem(@RequestBody Item item,@PathVariable("categoryId") Long id){
+        Category itemCategory = categoryRepository.findOne(id);
+        item.setItemCategory(itemCategory);
         itemRepository.save(item);
     }
 

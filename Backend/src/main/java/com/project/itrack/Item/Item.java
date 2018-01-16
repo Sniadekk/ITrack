@@ -75,5 +75,7 @@ public class Item {
         this.price = price;
     }
 
-
+    public void setItemCategory(Category itemCategory) {
+        this.itemCategory = itemCategory;
+    }
 }

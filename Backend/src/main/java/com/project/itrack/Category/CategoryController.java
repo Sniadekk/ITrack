@@ -1,5 +1,6 @@
 package com.project.itrack.Category;
 
+import com.project.itrack.Item.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,4 +31,6 @@ public class CategoryController {
     public Category getCategoryById(@PathVariable(value = "categoryId") Long id ){
         return categoryRepository.getCategoriesById(id);
     }
+
+
 }

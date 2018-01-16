@@ -24,9 +24,6 @@ public class Category {
 
     private String name;
 
-    @OneToMany
-    private List<Item> items = new ArrayList<>();
-
     public Long getId() {
         return id;
     }

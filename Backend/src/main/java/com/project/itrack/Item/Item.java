@@ -2,9 +2,7 @@ package com.project.itrack.Item;
 
 import com.project.itrack.Category.Category;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Item {
@@ -13,12 +11,12 @@ public class Item {
 
     }
 
-    public Item(String name, String description, Integer amount, long price, Category category) {
+    public Item(String name, String description, Integer amount, long price, Category itemCategory) {
         this.name = name;
         this.description = description;
         this.amount = amount;
         this.price = price;
-        this.category = category;
+        this.itemCategory = itemCategory;
     }
 
     @Id
@@ -30,7 +28,12 @@ public class Item {
     private Integer amount;
     private long price;
 
-    private Category category;
+    @ManyToOne
+    private Category itemCategory;
+
+    public Category getItemCategory() {
+        return itemCategory;
+    }
 
     public long getId() {
         return id;
@@ -72,11 +75,5 @@ public class Item {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
-    }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 }

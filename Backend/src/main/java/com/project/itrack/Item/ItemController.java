@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.*;
 public class ItemController {
     private ItemRepository itemRepository;
     private CategoryRepository categoryRepository;
-
-    ItemController(){
-
-    }
+    private ItemService itemService;
+    
 
     @Autowired
     ItemController(ItemRepository itemRepository, CategoryRepository categoryRepository){
@@ -22,17 +20,14 @@ public class ItemController {
 
     }
 
-
     @RequestMapping(path="/")
     public Iterable<Item> getAllItems(@PathVariable(value="categoryId") Long id){
-        return itemRepository.findItemsByItemCategoryId(id);
+        return itemService.getAllItems(id);
     }
 
     @RequestMapping(path="/", method = RequestMethod.POST)
     public void addItem(@RequestBody Item item,@PathVariable("categoryId") Long id){
-        Category itemCategory = categoryRepository.findOne(id);
-        item.setItemCategory(itemCategory);
-        itemRepository.save(item);
+        itemService.addItem(item, id);
     }
 
 }

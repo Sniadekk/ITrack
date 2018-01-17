@@ -78,4 +78,9 @@ public class Item {
     public void setItemCategory(Category itemCategory) {
         this.itemCategory = itemCategory;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

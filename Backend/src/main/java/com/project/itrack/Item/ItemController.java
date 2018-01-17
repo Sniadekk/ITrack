@@ -30,8 +30,8 @@ public class ItemController {
         itemService.addItem(item, id);
     }
 
-    @RequestMapping(path="/delete", method = RequestMethod.POST)
-    public void addItem(@PathVariable("id") Long id){
+    @RequestMapping(path="/", method = RequestMethod.DELETE)
+    public void deleteItem(@RequestBody Long id){
         itemService.deleteItem(id);
     }
 

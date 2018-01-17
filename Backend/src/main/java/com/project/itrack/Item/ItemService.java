@@ -23,4 +23,5 @@ public class ItemService {
         Item item = itemRepository.findOne(id);
         itemRepository.delete(item);
     }
+
 }

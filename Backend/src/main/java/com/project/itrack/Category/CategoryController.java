@@ -25,6 +25,11 @@ public class CategoryController {
         categoryService.addCategory(category);
     }
 
+    @RequestMapping(path="/{categoryId}/delete")
+    public void deleteCategory(@PathVariable(value = "categoryId") Long id ){
+        categoryService.deleteCategory(id);
+    }
+
     @RequestMapping(path="/", method = RequestMethod.GET)
     public  Iterable<Category> getAllCategories(){
         return categoryService.getAllCategories();

@@ -11,7 +11,7 @@ public class ItemController {
     private ItemRepository itemRepository;
     private CategoryRepository categoryRepository;
     private ItemService itemService;
-    
+
 
     @Autowired
     ItemController(ItemRepository itemRepository, CategoryRepository categoryRepository){
@@ -28,6 +28,11 @@ public class ItemController {
     @RequestMapping(path="/", method = RequestMethod.POST)
     public void addItem(@RequestBody Item item,@PathVariable("categoryId") Long id){
         itemService.addItem(item, id);
+    }
+
+    @RequestMapping(path="/delete", method = RequestMethod.POST)
+    public void addItem(@PathVariable("id") Long id){
+        itemService.deleteItem(id);
     }
 
 }

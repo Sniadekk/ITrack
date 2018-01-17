@@ -16,6 +16,10 @@ public class CategoryService {
     public void addCategory(Category category){
         categoryRepository.save(category);
     }
+    public void deleteCategory(Long id){
+        Category category = categoryRepository.findOne(id);
+        categoryRepository.delete(category);
+    }
     public Iterable<Category> getAllCategories(){
         return categoryRepository.findAll();
     }

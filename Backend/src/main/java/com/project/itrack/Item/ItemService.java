@@ -18,4 +18,9 @@ public class ItemService {
         item.setItemCategory(itemCategory);
         itemRepository.save(item);
     }
+
+    public void deleteItem(Long id){
+        Item item = itemRepository.findOne(id);
+        itemRepository.delete(item);
+    }
 }

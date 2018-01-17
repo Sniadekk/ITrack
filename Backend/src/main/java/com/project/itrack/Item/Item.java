@@ -11,12 +11,14 @@ public class Item {
 
     }
 
-    public Item(String name, String description, Integer amount, long price, Category itemCategory) {
+    public Item(String name, String description, Integer amount, long price, Category itemCategory, String measureUnit) {
         this.name = name;
         this.description = description;
         this.amount = amount;
         this.price = price;
         this.itemCategory = itemCategory;
+        this.measureUnit = measureUnit;
+
     }
 
     @Id
@@ -27,6 +29,7 @@ public class Item {
     private String description;
     private Integer amount;
     private long price;
+    private String measureUnit;
 
     @ManyToOne
     private Category itemCategory;

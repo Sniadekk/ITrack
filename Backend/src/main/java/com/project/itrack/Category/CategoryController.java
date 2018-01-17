@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path="/category")
 public class CategoryController {
     private final CategoryRepository categoryRepository;
+
 
     @Autowired
     CategoryController(CategoryRepository categoryRepository){

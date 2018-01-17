@@ -11,27 +11,35 @@ import java.util.List;
 @RestController
 @RequestMapping(path="/category")
 public class CategoryController {
-    private final CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRespository;
 
 
     @Autowired
-    CategoryController(CategoryRepository categoryRepository){
-    this.categoryRepository = categoryRepository;
+    private CategoryService categoryService;
+
+    @Autowired
+    CategoryController(CategoryRepository categoryRepository ){
+        this.categoryRespository = categoryRepository;
     }
 
     @RequestMapping(path="/", method = RequestMethod.POST)
     public void addCategory(@RequestBody Category category){
-        categoryRepository.save(category);
+        categoryService.addCategory(category);
+    }
+
+    @RequestMapping(path="/{categoryId}", method = RequestMethod.DELETE)
+    public void deleteCategory(@PathVariable(value = "categoryId") Long id ){
+        categoryService.deleteCategory(id);
     }
 
     @RequestMapping(path="/", method = RequestMethod.GET)
     public  Iterable<Category> getAllCategories(){
-        return categoryRepository.findAll();
+        return categoryService.getAllCategories();
     }
 
     @RequestMapping(path="/{categoryId}")
     public Category getCategoryById(@PathVariable(value = "categoryId") Long id ){
-        return categoryRepository.getCategoriesById(id);
+        return categoryService.getCategoryById(id);
     }
 
 

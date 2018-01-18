@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {helloWorld} from './Functions/axios'
+import {getCategories} from './Functions/AjaxCalls';
+import Sidebar from './Components/Sidebar';
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.hello = this.hello.bind(this);
-  }
-  hello(){
-      helloWorld();
   }
 
   render() {
     return (
-      <button onClick={this.hello}>HELLO</button>
+        <div>
+      <Sidebar/>
+        </div>
     );
   }
 }

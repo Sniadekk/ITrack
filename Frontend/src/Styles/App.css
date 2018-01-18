@@ -1,0 +1,47 @@
+html,body,#root,.wrapper{
+    height:100%;
+}
+ul{
+    list-style-type: none;
+}
+.sidebar{
+    background-color: #767676;
+  width:15%;
+
+}
+.parent{
+    width:100%;
+}
+
+.sidebar-category-list{
+width:100%;
+}
+
+.sidebar-category-list > ul{
+  padding:0;
+  margin:0;
+}
+
+.childButton {
+color:white;
+    width:100%;
+    background-color: #497dcc;
+}
+
+
+
+.viewer{
+  width:70%;
+}
+
+.wrapper{
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.button{
+    margin:0;
+    border-bottom:1px solid black;
+}
+
+

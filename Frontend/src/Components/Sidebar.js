@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios, {getCategories, getItems} from "../Functions/AjaxCalls";
+import {getCategories, getItems} from "../Functions/AjaxCalls";
 import "../Styles/foundation.css"
 import "../Styles/App.css";
 
@@ -8,7 +8,7 @@ class Sidebar extends Component{
         super(props);
         this.state = {isLoaded:false};
         this.toggleCategories = this.toggleCategories.bind(this);
-        this.getItems = this.getItems.bind(this);
+        this.changeCategory = this.changeCategory.bind(this);
     }
 
     componentDidMount() {
@@ -18,12 +18,12 @@ class Sidebar extends Component{
 
     }
 
-    getItems(evt){
-        getItems(evt.target.value).then(response => console.log(response));
+    changeCategory(evt){
+        this.props.update(evt.target.value);
     }
 
     parseCategories(){
-        return this.state.categories.map( category => <li key={category.id}><button onClick={this.getItems} value ={category.id} className="button primary">{category.name}</button></li>)
+        return this.state.categories.map( category => <li key={category.id}><button onClick={this.changeCategory} value ={category.id} className="button primary">{category.name}</button></li>)
     }
 
     toggleCategories(){

@@ -8,5 +8,6 @@ export const getCategories = () => {
 };
 
 export const getItems = (categoryId) =>{
- return axios.get("category/" + categoryId + "/item/");
+ return axios.get("category/" + categoryId + "/item/")
+     .then(response => response.data);
 };

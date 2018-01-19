@@ -1,3 +1,4 @@
+/* HTML COMPONENTS */
 html,body,#root,.wrapper{
     height:100%;
 }
@@ -7,8 +8,10 @@ ul{
     margin:0;
 
 }
-
-
+p{
+    margin:0;
+}
+/* COMPONENTS */
 .wrapper{
     display:flex;
     flex-wrap:wrap;
@@ -16,11 +19,51 @@ ul{
 
 .sidebar{
 width:15%;
+border-right:1px solid black;
+    background-color:#1779ba;
+}
+
+.viewer{
+    width:85%;
 
 }
 
+.itemViewer{
+width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.item{
+    width:90%;
+    border:1px solid black;
+    border-bottom:none;
+    display:flex;
+    justify-content: center;
+    padding:0.5em;
+}
+
+.item:last-child{
+    border-bottom: 1px solid black;
+}
+
+
+
+
+
+
+/* FOUNDATION OVERWRITE */
 .button{
     margin:0;
     border-bottom:1px solid black;
     width:100%;
+}
+
+.dropdown{
+    background-color: #0d5b8e;
+}
+
+.dropdown:hover{
+    background-color: #09314a;
 }

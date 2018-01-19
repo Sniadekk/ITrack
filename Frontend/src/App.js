@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {getCategories} from './Functions/AjaxCalls';
 import Sidebar from './Components/Sidebar';
-
+import './Styles/App.css';
 class App extends Component {
   constructor(props){
     super(props);
@@ -11,8 +8,8 @@ class App extends Component {
 
   render() {
     return (
-        <div>
-      <Sidebar/>
+        <div className="wrapper">
+          <Sidebar/>
         </div>
     );
   }

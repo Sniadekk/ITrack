@@ -1,5 +1,6 @@
 package com.project.itrack.Item;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.itrack.Category.Category;
 
 import javax.persistence.*;
@@ -31,6 +32,7 @@ public class Item {
     private long price;
     private String measureUnit;
 
+    @JsonIgnore
     @ManyToOne
     private Category itemCategory;
 

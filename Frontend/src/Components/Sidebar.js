@@ -1,28 +1,44 @@
 import React, { Component } from 'react';
-import {getCategories} from "../Functions/AjaxCalls";
+import axios, {getCategories, getItems} from "../Functions/AjaxCalls";
+import "../Styles/foundation.css"
+import "../Styles/App.css";
 
 class Sidebar extends Component{
     constructor(props){
         super(props);
-        this.state = {categories:null};
+        this.state = {isLoaded:false};
+        this.toggleCategories = this.toggleCategories.bind(this);
+        this.getItems = this.getItems.bind(this);
     }
 
-    componentWillMount(){
-        const cat = getCategories();
-        console.log("fetch: " + cat);
-        this.setState({categories:cat});
+    componentDidMount() {
+      getCategories().then( (res) =>{
+          this.setState({categories:res, isVisible:true})
+      });
+
+    }
+
+    getItems(evt){
+        getItems(evt.target.value).then(response => console.log(response));
     }
 
     parseCategories(){
-        console.log("state:" + this.state.categories);
-        const parsedCategories = this.state.categories.map((category) => <li> {category.name} </li>);
-        this.setState({categories:parsedCategories});
+        return this.state.categories.map( category => <li key={category.id}><button onClick={this.getItems} value ={category.id} className="button primary">{category.name}</button></li>)
+    }
+
+    toggleCategories(){
+        this.setState(prevState => ({
+            isVisible:!prevState.isVisible
+        }));
     }
 
     render(){
         return(
-            <div>
-                {this.parseCategories()}
+            <div className="sidebar">
+                <button onClick ={this.toggleCategories} className ="dropdown button">CATEGORIES</button>
+                <ul>
+                {this.state.isVisible && this.parseCategories()}
+                </ul>
             </div>
         );
     }

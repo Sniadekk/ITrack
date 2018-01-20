@@ -13,14 +13,13 @@ class ItemViewer extends Component{
 
 
     componentWillReceiveProps(nextProps){
-        this.fetchItems();
+        if(nextProps.currentCategory !== this.props.currentCategory){
+            this.fetchItems(nextProps.currentCategory);
+        }
     }
 
-    fetchItems(){
-        console.log(this.state.itemsLoaded);
-        this.setState({itemsLoaded:false});
-        console.log(this.state.itemsLoaded);
-        getItems(this.props.currentCategory)
+    fetchItems(currentCategory){
+        getItems(currentCategory)
             .then((response)=>{
                 console.log("Response length:",response.length);
                     this.setState({items: response, itemsLoaded: true});

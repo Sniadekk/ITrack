@@ -11,7 +11,7 @@ class Item extends Component{
             <div className="item">
 
                 <p>{this.props.data.name}</p>
-
+                <p>{this.props.data.amount}</p>
 
             </div>
 

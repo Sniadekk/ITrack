@@ -9,22 +9,28 @@ class ItemViewer extends Component{
         super(props);
         this.parseItems = this.parseItems.bind(this);
         this.state = {itemsLoaded:false};
-        this.fetchItems();
     }
+
 
     componentWillReceiveProps(nextProps){
         this.fetchItems();
     }
 
     fetchItems(){
+        console.log(this.state.itemsLoaded);
+        this.setState({itemsLoaded:false});
+        console.log(this.state.itemsLoaded);
         getItems(this.props.currentCategory)
             .then((response)=>{
-                console.log(response.length);
+                console.log("Response length:",response.length);
                     this.setState({items: response, itemsLoaded: true});
             });
     }
 
     parseItems(){
+        if(this.state.items.length === 0){
+            return("THERE ARE NO ITEMS AVAILABLE");
+        }
         return this.state.items.map((itemData) => <Item key={itemData.id} data = {itemData} />);
     }
 

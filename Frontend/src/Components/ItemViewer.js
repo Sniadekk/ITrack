@@ -12,22 +12,26 @@ class ItemViewer extends Component{
         this.fetchItems();
     }
 
+    componentWillReceiveProps(nextProps){
+        this.fetchItems();
+    }
+
     fetchItems(){
         getItems(this.props.currentCategory)
             .then((response)=>{
-                this.setState({items:response,itemsLoaded:true});
+                console.log(response.length);
+                    this.setState({items: response, itemsLoaded: true});
             });
     }
 
     parseItems(){
-        this.fetchItems();
         return this.state.items.map((itemData) => <Item key={itemData.id} data = {itemData} />);
     }
 
     render(){
         return(
             <div className="itemViewer">
-                {this.state.itemsLoaded && this.parseItems()}
+                {this.state.itemsLoaded  && this.parseItems()}
             </div>
 
         );

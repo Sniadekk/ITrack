@@ -22,14 +22,16 @@ class ItemViewer extends Component{
         getItems(currentCategory)
             .then((response)=>{
                 console.log("Response length:",response.length);
+                console.log("Response data:",response);
                     this.setState({items: response, itemsLoaded: true});
             });
     }
 
     parseItems(){
         if(this.state.items.length === 0){
-            return("THERE ARE NO ITEMS AVAILABLE");
+            return('THERE ARE NO ITEMS AVAILABLE');
         }
+
         return this.state.items.map((itemData) => <Item key={itemData.id} data = {itemData} />);
     }
 

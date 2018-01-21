@@ -5,6 +5,7 @@ import com.project.itrack.Category.Category;
 
 import javax.persistence.*;
 
+@Table(name="items")
 @Entity
 public class Item {
 
@@ -82,6 +83,14 @@ public class Item {
 
     public void setItemCategory(Category itemCategory) {
         this.itemCategory = itemCategory;
+    }
+
+    public String getMeasureUnit() {
+        return measureUnit;
+    }
+
+    public void setMeasureUnit(String measureUnit) {
+        this.measureUnit = measureUnit;
     }
 
     @Override

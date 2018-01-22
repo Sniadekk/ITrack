@@ -4,11 +4,6 @@ import '../Styles/foundation.css';
 import '../Styles/App.css';
 
 class Viewer extends Component{
-    constructor(props){
-        super(props);
-    }
-
-
 
 render(){
     return(

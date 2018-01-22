@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getCategories, getItems} from "../Functions/AjaxCalls";
+import {getCategories} from "../Functions/AjaxCalls";
 import "../Styles/foundation.css"
 import "../Styles/App.css";
 

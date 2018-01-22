@@ -78,29 +78,55 @@ p{
     left:30%;
     width:50%;
     height:60%;
-    background-color: black;
-    color:white;
+    background-color: #d7dae0;
+    color:black;
     display:inline-block;
     font-weight: lighter;
-    border:3px solid #252525;
+    border:3px solid #686b70;
 }
 
-.menuItem{
+.menu-item{
     width:100%;
-    padding-left:5%;
-    border-bottom:1px solid white;
+    padding-left:2%;
+    border-bottom:1px solid black;
+    font-weight:500;
 }
 
-.toolkit{
-    width:85%;
+
+.hide-background{
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.menu-item-description{
+    font-weight:500;
     display:inline-block;
-    height:10%;
+    width:15%;
+    position:relative;
 }
 
+.menu-item-description::after{
+    content:":";
+    position:absolute;
+    font-weight:700;
+    right:0;
+}
 
+.menu-item-content{
+    padding-left:2%;
+}
 /* FOUNDATION OVERWRITE */
 .button{
     margin:0;
     width:100%;
 }
 
+/*WARNING, INFORMATIONS ETC. */
+ .no-items-warning{
+     width:100%;
+     text-align:center;
+ }

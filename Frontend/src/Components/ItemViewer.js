@@ -9,6 +9,7 @@ class ItemViewer extends Component{
         super(props);
         this.parseItems = this.parseItems.bind(this);
         this.state = {itemsLoaded:false};
+        this.noItemsWarning = <div className="no-items-warning"> THERE ARE NO ITEMS AVAILABLE. </div>;
     }
 
 
@@ -29,7 +30,7 @@ class ItemViewer extends Component{
 
     parseItems(){
         if(this.state.items.length === 0){
-            return('THERE ARE NO ITEMS AVAILABLE');
+            return this.noItemsWarning;
         }
 
         return this.state.items.map((itemData) => <Item key={itemData.id} data = {itemData} />);

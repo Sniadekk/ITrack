@@ -38,7 +38,7 @@ class ItemViewer extends Component{
 
     render(){
         return(
-            <div className="itemViewer">
+            <div className="item-viewer">
                 {this.state.itemsLoaded  && this.parseItems()}
             </div>
 

@@ -37,6 +37,7 @@ class Item extends Component{
                         <div tabIndex="0" onKeyDown={this.removeMenu} className="menu">
                             <p className = "menu-item"><span className="menu-item-description">Name </span> <span className="menu-item-content">{this.props.data.name}</span> </p>
                             <p className = "menu-item"> <span className="menu-item-description">Amount  </span> <span className="menu-item-content">{this.props.data.amount} {this.props.data.measureUnit} </span> </p>
+                            <p className = "menu-item"> <span className="menu-item-description">Price  </span> <span className="menu-item-content">{this.props.data.price} zł </span> </p>
                             <p className = "menu-item"> {this.props.data.description}  </p>
                         </div>
                     </div>

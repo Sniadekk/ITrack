@@ -14,7 +14,11 @@ class ItemViewer extends Component{
 
 
     componentWillReceiveProps(nextProps){
+        console.log(nextProps);
         if(nextProps.currentCategory !== this.props.currentCategory){
+            this.fetchItems(nextProps.currentCategory);
+        }
+        if(nextProps.shouldFetch === true){
             this.fetchItems(nextProps.currentCategory);
         }
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './Components/Sidebar';
 import Viewer from './Components/Viewer';
 import './Styles/App.css';
+import Homepage from "./Components/Homepage";
 class App extends Component {
     constructor(props){
         super(props);
@@ -18,11 +19,14 @@ class App extends Component {
   render() {
     return (
         <div className="wrapper">
-          <Sidebar update = {this.updateItem}/>
-            <Viewer currentCategory = {this.state.currentCategory}/>
+        <Homepage/>
         </div>
     );
   }
 }
 
 export default App;
+{/*<div className="wrapper">*/}
+    {/*<Sidebar update = {this.updateItem}/>*/}
+    {/*<Viewer currentCategory = {this.state.currentCategory}/>*/}
+{/*</div>*/}

@@ -91,9 +91,8 @@ p{
 
 .menu-item{
     width:100%;
-    padding-left:2%;
-    border-bottom:1px solid black;
-    font-weight:500;
+    padding-left:1%;
+    font-weight:700;
 }
 
 
@@ -106,22 +105,6 @@ p{
     background-color: rgba(0,0,0,0.9);
 }
 
-.menu-item-description{
-    font-weight:500;
-    width:15%;
-    position:relative;
-}
-
-.menu-item-description::after{
-    content:":";
-    position:absolute;
-    font-weight:700;
-    right:0;
-}
-
-.menu-item-content{
-    padding-left:2%;
-}
 
 .item-adder{
     width:100%;
@@ -200,7 +183,14 @@ p{
      width:100%;
      font-size:1.1rem;
  }
-
+.menu-buttons{
+    display:flex;
+    justify-content: flex-end;
+    font-weight: 700;
+}
+.menu-buttons > button{
+    width:20%;
+}
 /*WARNING, INFORMATIONS ETC. */
  .no-items-warning{
      width:100%;

@@ -52,7 +52,6 @@ class ItemAdder extends Component{
                         price:0,
                         description:""
                     });
-                    console.log(response);
                     this.props.fetchItems();
                 });
         }

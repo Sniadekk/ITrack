@@ -19,14 +19,12 @@ class App extends Component {
   render() {
     return (
         <div className="wrapper">
-        <Homepage/>
+                <Sidebar update = {this.updateItem}/>
+                <Viewer currentCategory = {this.state.currentCategory}/>
         </div>
+
     );
   }
 }
 
 export default App;
-{/*<div className="wrapper">*/}
-    {/*<Sidebar update = {this.updateItem}/>*/}
-    {/*<Viewer currentCategory = {this.state.currentCategory}/>*/}
-{/*</div>*/}

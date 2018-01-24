@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 
 import '../Styles/foundation.css';
+import '../Styles/Fontello/css/fontello.css';
+import {deleteItem} from "../Functions/AjaxCalls";
 
 class Item extends Component{
     constructor(props){
         super(props);
-        this.state = {menuToggled:false};
+        this.state = {
+            menuToggled:false,
+            json:{
+
+            }
+
+        };
         this.toggleMenu = this.toggleMenu.bind(this);
         this.removeMenu = this.removeMenu.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
         this.modalDiv = document.getElementById('modal-root');
     }
 
@@ -16,13 +25,22 @@ class Item extends Component{
         this.setState({menuToggled:true});
     }
 
-    removeMenu(evt){
-        const targetClass = evt.target.className;
-        if(evt.keyCode === 27 || (evt.buttons === 0 && !targetClass.includes('menu'))){
+    removeMenu(evt, requestType){
+        if(requestType ==="delete" || evt.keyCode === 27 || (evt.buttons === 0 && !evt.target.className.includes('menu'))){
             document.removeEventListener('keydown',this.removeMenu);
             this.modalDiv.removeEventListener('click',this.removeMenu, true);
             this.setState({menuToggled:false});
         }
+    }
+
+    deleteItem(){
+        //Delete request(categoryId,itemId)
+        deleteItem(this.props.currentCategory,this.props.data.id)
+            .then(()=> {
+                this.props.fetchItems()
+            })
+                .then(() => this.removeMenu(undefined,"delete"));
+
     }
 
     render(){
@@ -35,10 +53,27 @@ class Item extends Component{
                     <div>
                         <div className="hide-background" onClick={this.removeMenu}> </div>
                         <div tabIndex="0" onKeyDown={this.removeMenu} className="menu">
-                            <p className = "menu-item"><span className="menu-item-description">Name </span> <span className="menu-item-content">{this.props.data.name}</span> </p>
-                            <p className = "menu-item"> <span className="menu-item-description">Amount  </span> <span className="menu-item-content">{this.props.data.amount} {this.props.data.measureUnit} </span> </p>
-                            <p className = "menu-item"> <span className="menu-item-description">Price  </span> <span className="menu-item-content">{this.props.data.price} zł </span> </p>
-                            <p className = "menu-item"> {this.props.data.description}  </p>
+                            <label>
+                                <span className="menu-item"> Name: </span>
+                            <input type="text" name="name" value={this.props.data.name} />
+                            </label>
+                            <label>
+                                <span className="menu-item"> Amount: </span>
+                            <input type="text" name="amount" value={this.props.data.amount} />
+                            </label>
+                            <label>
+                                <span className="menu-item"> Price: </span>
+                            <input type="text" name="price" value={this.props.data.price} />
+                            </label>
+                            <label>
+                                <span className="menu-item"> Description: </span>
+                            <textarea name="description" value={this.props.data.description} />
+                            </label>
+                            <div className="menu-buttons">
+                                <button className="button alert" onClick={this.deleteItem}><span className="icon-trash-empty" aria-hidden="true"> DELETE</span></button>
+                                <button className="button success"><span className="icon-pencil" aria-hidden="true">EDIT</span></button>
+
+                            </div>
                         </div>
                     </div>
                 }

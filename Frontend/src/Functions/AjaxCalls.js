@@ -17,3 +17,8 @@ export const addItem = (categoryId, json) =>{
         .then((response)=>  response);
 
 };
+
+export const deleteItem = (categoryId, itemId) =>{
+    return axios.delete("category/" + categoryId +"/item/" + itemId)
+        .then(response => response);
+};

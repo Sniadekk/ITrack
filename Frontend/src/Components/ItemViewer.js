@@ -8,13 +8,16 @@ class ItemViewer extends Component{
     constructor(props){
         super(props);
         this.parseItems = this.parseItems.bind(this);
-        this.state = {itemsLoaded:false};
+        this.shouldFetch = this.shouldFetch.bind(this);
+        this.state = {
+            itemsLoaded:false,
+            currentCategory:1
+        };
         this.noItemsWarning = <div className="no-items-warning"> THERE ARE NO ITEMS AVAILABLE. </div>;
     }
 
 
     componentWillReceiveProps(nextProps){
-        console.log(nextProps);
         if(nextProps.currentCategory !== this.props.currentCategory){
             this.fetchItems(nextProps.currentCategory);
         }
@@ -23,21 +26,24 @@ class ItemViewer extends Component{
         }
     }
 
+    shouldFetch(){
+        this.fetchItems(this.state.currentCategory);
+    }
+
     fetchItems(currentCategory){
         getItems(currentCategory)
             .then((response)=>{
-                console.log("Response length:",response.length);
-                console.log("Response data:",response);
-                    this.setState({items: response, itemsLoaded: true});
+                    this.setState({items: response, itemsLoaded: true, currentCategory:currentCategory});
             });
     }
 
     parseItems(){
+        console.log(this.state);
         if(this.state.items.length === 0){
             return this.noItemsWarning;
         }
 
-        return this.state.items.map((itemData) => <Item key={itemData.id} data = {itemData} />);
+        return this.state.items.map((itemData) => <Item key={itemData.id} data = {itemData} currentCategory={this.state.currentCategory} fetchItems ={this.shouldFetch}/>);
     }
 
     render(){

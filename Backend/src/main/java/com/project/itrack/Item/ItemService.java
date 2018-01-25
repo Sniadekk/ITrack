@@ -33,4 +33,12 @@ public class ItemService {
         itemRepository.delete(item);
     }
 
+    public void updateItem(Long categoryId, Long id, Item item){
+        Category category = categoryRepository.findOne(categoryId);
+        item.setId(id);
+        item.setItemCategory(category);
+        itemRepository.save(item);
+
+    }
+
 }

@@ -22,6 +22,7 @@ public class Category {
     @GeneratedValue
     private Long id;
 
+    @Column(length = 250)
     private String name;
 
     public Long getId() {

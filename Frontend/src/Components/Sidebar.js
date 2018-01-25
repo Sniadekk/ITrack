@@ -35,7 +35,7 @@ class Sidebar extends Component{
     render(){
         return(
             <div className="sidebar">
-                <button onClick ={this.toggleCategories} className ="dropdown button">CATEGORIES</button>
+                <button onClick ={this.toggleCategories} className ="dropdown button toolkit-item">CATEGORIES</button>
                 <ul>
                 {this.state.isVisible && this.parseCategories()}
                 </ul>

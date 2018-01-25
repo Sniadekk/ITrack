@@ -19,10 +19,14 @@ class ItemAdder extends Component{
     }
 
     handleChange(evt){
-        let value = parseFloat(evt.target.value);
-            if(isNaN(value)){
-                value = evt.target.value;
+        let value = evt.target.value;
+        if(evt.target.type === "number"){
+            if(value.toString().length >= 8){
+                return;
             }
+            value = parseFloat(evt.target.value);
+
+        }
         const name = evt.target.name;
         this.setState({[name]:value});
     }
@@ -63,11 +67,11 @@ class ItemAdder extends Component{
                 <form onSubmit = {(evt)=>evt.preventDefault()}>
                     <label>
                         Name:
-                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required/>
+                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange}  required/>
                     </label>
                     <label>
                         Amount:
-                        <input type="number" name="amount" value={this.state.amount} onChange={this.handleChange} required/>
+                        <input type="number" name="amount" value={this.state.amount} onChange={this.handleChange}  required/>
                     </label>
                     <label>
                         Measure unit:
@@ -75,7 +79,7 @@ class ItemAdder extends Component{
                     </label>
                     <label>
                         Price:
-                        <input type="number" name="price" step={0.10} value={this.state.price} onChange={this.handleChange} required/>
+                        <input type="number" name="price" step={0.10} value={this.state.price} onChange={this.handleChange}  required/>
                     </label>
                     <label>
                         Description:

@@ -22,3 +22,9 @@ export const deleteItem = (categoryId, itemId) =>{
     return axios.delete("category/" + categoryId +"/item/" + itemId)
         .then(response => response);
 };
+
+export const updateItem = (categoryId, itemId , json)=>{
+    return axios.put("category/" + categoryId + "/item/" + itemId,json)
+            .then(response => console.log(response));
+
+};

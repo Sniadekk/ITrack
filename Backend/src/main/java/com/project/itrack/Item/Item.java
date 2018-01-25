@@ -27,8 +27,12 @@ public class Item {
     @GeneratedValue
     private long id;
 
+    @Column(length = 300)
     private String name;
+
+    @Column(length = 5000)
     private String description;
+
     private Integer amount;
     private long price;
     private String measureUnit;

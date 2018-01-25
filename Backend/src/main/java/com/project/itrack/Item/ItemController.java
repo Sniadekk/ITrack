@@ -36,8 +36,12 @@ public class ItemController {
 
     @RequestMapping(path="/{itemId}", method = RequestMethod.DELETE)
     public void deleteItem(@PathVariable(value="itemId") Long id){
-        System.out.println(id);
         itemService.deleteItem(id);
+    }
+
+    @RequestMapping(path="/{itemId}", method = RequestMethod.PUT)
+    public void updateItem(@PathVariable(value ="itemId") Long id, @PathVariable(value ="categoryId") Long categoryId, @RequestBody Item item){
+        itemService.updateItem(categoryId, id, item);
     }
 
 }

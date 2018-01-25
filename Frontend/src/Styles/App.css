@@ -24,6 +24,7 @@ p{
      font-family: 'Montserrat', sans-serif;
 
  }
+
 /* COMPONENTS */
 .wrapper{
     display:flex;
@@ -41,7 +42,6 @@ p{
 
 .viewer{
     width:85%;
-    padding-top:1%;
     display:flex;
     justify-content: center;
     align-items:flex-start;
@@ -68,6 +68,7 @@ p{
     background-color: #514f4f;
     margin-top:1em;
     margin-right:10%;
+    word-wrap:break-word;
 
 }
 
@@ -94,6 +95,9 @@ p{
     padding-left:1%;
     font-weight:700;
 }
+.menu  textarea{
+    height:10rem;
+}
 
 
 .hide-background{
@@ -117,15 +121,37 @@ p{
     flex-wrap:wrap;
     position:relative;
 }
+
 .item-adder > form > label {
     padding-right:3%;
     width:25%;
 }
+
+.toolkit{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    padding-bottom:1%;
+}
+
+.toolkit ul{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #164463;
+}
+
+.button.toolkit-item{
+    background-color: #164463;
+}
+
 /* FOUNDATION OVERWRITE */
  .button{
     margin:0;
     width:100%;
 }
+
 .item-adder-button-image{
     margin: 1.5rem 0 1rem 0;
     max-height:4rem;
@@ -136,6 +162,7 @@ p{
     background-color: #fefefe;
     border: 1px solid #cacaca;
 }
+
  .item-adder-button{
      width: 10%;
      height:20%;
@@ -152,6 +179,7 @@ p{
      text-align:center;
 
  }
+
  .welcome{
      width:100%;
      color:#1779ba;
@@ -179,18 +207,22 @@ p{
  .homepage > form > label > .login-button{
      width:30%;
  }
+
  .welcome-below{
      width:100%;
      font-size:1.1rem;
  }
+
 .menu-buttons{
     display:flex;
     justify-content: flex-end;
     font-weight: 700;
 }
+
 .menu-buttons > button{
     width:20%;
 }
+
 /*WARNING, INFORMATIONS ETC. */
  .no-items-warning{
      width:100%;

@@ -1,15 +1,15 @@
 package com.project.itrack.Category;
 
 import com.project.itrack.Item.Item;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
-@Table(name="categories")
+@Table(name = "categories")
 public class Category {
-    Category(){
+    Category() {
 
     }
 
@@ -18,12 +18,14 @@ public class Category {
     }
 
     @Id
-
     @GeneratedValue
     private Long id;
 
     @Column(length = 250)
     private String name;
+
+    @OneToMany(mappedBy = "itemCategory", cascade = CascadeType.ALL)
+    private List<Item> items;
 
     public Long getId() {
         return id;
@@ -39,5 +41,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }

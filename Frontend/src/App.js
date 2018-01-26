@@ -1,30 +1,44 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Sidebar from './Components/Sidebar';
 import Viewer from './Components/Viewer';
 import './Styles/App.css';
 import Homepage from "./Components/Homepage";
+import {getCategories} from "./Functions/AjaxCalls";
+
 class App extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.updateItem = this.updateItem.bind(this);
-        this.state = {currentCategory:1};
+        this.fetchCategories = this.fetchCategories.bind(this);
+        this.state = {
+            currentCategory: 1,
+            updateCategories: false
+        };
+        this.fetchCategories();
+    }
+
+
+    updateItem(categoryId) {
+        this.setState({currentCategory: categoryId});
 
     }
 
-    updateItem(categoryId){
-        this.setState({currentCategory:categoryId});
+    fetchCategories() {
+        getCategories().then((res) => {
+            this.setState({categories: res})
+        });
 
     }
 
-  render() {
-    return (
-        <div className="wrapper">
-                <Sidebar update = {this.updateItem}/>
-                <Viewer currentCategory = {this.state.currentCategory}/>
-        </div>
+    render() {
+        return (
+            <div className="wrapper">
+                <Sidebar update={this.updateItem} categories={this.state.categories} />
+                <Viewer currentCategory={this.state.currentCategory} updateCategories={this.fetchCategories}/>
+            </div>
 
-    );
-  }
+        );
+    }
 }
 
 export default App;

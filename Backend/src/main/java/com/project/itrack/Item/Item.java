@@ -38,7 +38,8 @@ public class Item {
     private String measureUnit;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="item_category_id")
     private Category itemCategory;
 
     public Category getItemCategory() {
@@ -97,8 +98,4 @@ public class Item {
         this.measureUnit = measureUnit;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }

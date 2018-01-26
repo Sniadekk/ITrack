@@ -110,19 +110,19 @@ p{
 }
 
 
-.item-adder{
+.toolkit-item{
     width:100%;
     border-bottom:1px solid black;
 }
 
-.item-adder > form{
+.toolkit-item > form{
     padding-left:3%;
     display:flex;
     flex-wrap:wrap;
     position:relative;
 }
 
-.item-adder > form > label {
+.toolkit-item > form > label {
     padding-right:3%;
     width:25%;
 }
@@ -171,6 +171,7 @@ p{
      position:absolute;
      right:0;
      bottom:0;
+     min-height:2rem;
      /*margin-left:auto;*/
  }
 

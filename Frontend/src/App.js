@@ -11,15 +11,17 @@ class App extends Component {
         this.updateItem = this.updateItem.bind(this);
         this.fetchCategories = this.fetchCategories.bind(this);
         this.state = {
-            currentCategory: 1,
+            currentCategory: {
+              id:1
+            },
             updateCategories: false
         };
         this.fetchCategories();
     }
 
 
-    updateItem(categoryId) {
-        this.setState({currentCategory: categoryId});
+    updateItem(category) {
+        this.setState({currentCategory: category});
 
     }
 

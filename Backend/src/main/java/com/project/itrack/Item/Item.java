@@ -38,7 +38,7 @@ public class Item {
     private String measureUnit;
 
     @JsonIgnore
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="item_category_id")
     private Category itemCategory;
 

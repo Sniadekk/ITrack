@@ -19,10 +19,10 @@ class ItemViewer extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentCategory !== this.props.currentCategory) {
-            this.fetchItems(nextProps.currentCategory);
+            this.fetchItems(nextProps.currentCategory.id);
         }
         if (nextProps.shouldFetch === true) {
-            this.fetchItems(nextProps.currentCategory);
+            this.fetchItems(nextProps.currentCategory.id);
         }
     }
 
@@ -51,6 +51,7 @@ class ItemViewer extends Component {
     render() {
         return (
             <div className="item-viewer">
+                <div className="active-category">{this.props.currentCategory.name}</div>
                 {this.state.itemsLoaded && this.parseItems()}
             </div>
 

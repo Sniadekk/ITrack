@@ -1,14 +1,12 @@
 package com.project.itrack;
-
-import com.project.itrack.Category.Category;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class ItrackApplication {
+public class ItrackApplication{
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(ItrackApplication.class, args);

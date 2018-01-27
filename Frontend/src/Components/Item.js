@@ -13,7 +13,8 @@ class Item extends Component {
                 name: this.props.data.name,
                 amount: this.props.data.amount,
                 price: this.props.data.price,
-                description: this.props.data.description
+                description: this.props.data.description,
+                measureUnit:this.props.data.measureUnit
             }
 
         };
@@ -80,7 +81,7 @@ class Item extends Component {
                             <input type="text" name="name" value={this.state.json.name} onChange={this.handleChange}/>
                         </label>
                         <label>
-                            <span className="menu-item"> Amount: </span>
+                            <span className="menu-item"> Amount ({this.state.json.measureUnit}): </span>
                             <input type="number" name="amount" value={this.state.json.amount}
                                    onChange={this.handleChange}/>
                         </label>
